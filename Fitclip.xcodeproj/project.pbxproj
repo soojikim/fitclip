@@ -10,7 +10,6 @@
 		99276D501F09ED83004AE5CE /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99276D4E1F09ED83004AE5CE /* ChooseViewController.swift */; };
 		99276D511F09ED83004AE5CE /* InputDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99276D4F1F09ED83004AE5CE /* InputDetailsViewController.swift */; };
 		99376A2F1E99EC9600456DF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99376A2E1E99EC9600456DF7 /* AppDelegate.swift */; };
-		99376A311E99EC9600456DF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99376A301E99EC9600456DF7 /* ViewController.swift */; };
 		99376A341E99EC9600456DF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99376A321E99EC9600456DF7 /* Main.storyboard */; };
 		99376A361E99EC9600456DF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99376A351E99EC9600456DF7 /* Assets.xcassets */; };
 		99376A391E99EC9600456DF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99376A371E99EC9600456DF7 /* LaunchScreen.storyboard */; };
@@ -21,7 +20,6 @@
 		99276D4F1F09ED83004AE5CE /* InputDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputDetailsViewController.swift; sourceTree = "<group>"; };
 		99376A2B1E99EC9600456DF7 /* Fitclip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitclip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99376A2E1E99EC9600456DF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		99376A301E99EC9600456DF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		99376A331E99EC9600456DF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		99376A351E99EC9600456DF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99376A381E99EC9600456DF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,7 +59,6 @@
 				99376A2E1E99EC9600456DF7 /* AppDelegate.swift */,
 				99276D4E1F09ED83004AE5CE /* ChooseViewController.swift */,
 				99276D4F1F09ED83004AE5CE /* InputDetailsViewController.swift */,
-				99376A301E99EC9600456DF7 /* ViewController.swift */,
 				99376A321E99EC9600456DF7 /* Main.storyboard */,
 				99376A351E99EC9600456DF7 /* Assets.xcassets */,
 				99376A371E99EC9600456DF7 /* LaunchScreen.storyboard */,
@@ -143,7 +140,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				99276D511F09ED83004AE5CE /* InputDetailsViewController.swift in Sources */,
-				99376A311E99EC9600456DF7 /* ViewController.swift in Sources */,
 				99376A2F1E99EC9600456DF7 /* AppDelegate.swift in Sources */,
 				99276D501F09ED83004AE5CE /* ChooseViewController.swift in Sources */,
 			);

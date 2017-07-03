@@ -11,6 +11,7 @@ import UIKit
 class InputDetailsViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var CaptionBox: UITextView!
     
+    
     @IBAction func userTappedBackground(sender: AnyObject) {
         view.endEditing(true)
     }
@@ -21,6 +22,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         CaptionBox.delegate = self
         CaptionBox.text = "Write your caption here."
         CaptionBox.textColor = UIColor.lightGray
+        CaptionBox.layer.borderColor = UIColor.black.cgColor
         
         // At start: right bar button should be next
         let nextButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
