@@ -20,13 +20,14 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         CaptionBox.delegate = self
-        CaptionBox.text = "Write your caption here."
+        CaptionBox.text = "Write caption here"
         CaptionBox.textColor = UIColor.lightGray
         CaptionBox.layer.borderColor = UIColor.black.cgColor
         
         // At start: right bar button should be next
         let nextButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
         self.navigationItem.rightBarButtonItem = nextButton
+        self.navigationItem.rightBarButtonItem?.tintColor = .white
         
     }
     
@@ -39,6 +40,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         // When editing text view box, the right bar button item should change to the "Done" button.
         let saveButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: nil)
         self.navigationItem.rightBarButtonItem = saveButton
+        self.navigationItem.rightBarButtonItem?.tintColor = .white
         
     }
     
@@ -50,6 +52,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         else {
             let nextButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
             self.navigationItem.rightBarButtonItem = nextButton
+            self.navigationItem.rightBarButtonItem?.tintColor = .white
         }
     }
     
