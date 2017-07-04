@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let fitclipColor = UIColor(red: 254/255, green: 196/255, blue: 24/255, alpha: 1)
         UINavigationBar.appearance().barTintColor = fitclipColor
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         return true
     }
