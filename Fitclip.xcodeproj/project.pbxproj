@@ -13,6 +13,7 @@
 		99376A341E99EC9600456DF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99376A321E99EC9600456DF7 /* Main.storyboard */; };
 		99376A361E99EC9600456DF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99376A351E99EC9600456DF7 /* Assets.xcassets */; };
 		99376A391E99EC9600456DF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99376A371E99EC9600456DF7 /* LaunchScreen.storyboard */; };
+		99FB993B1F0C775D00B415DA /* GroupSetsPopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FB993A1F0C775D00B415DA /* GroupSetsPopoverController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		99376A351E99EC9600456DF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99376A381E99EC9600456DF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99376A3A1E99EC9600456DF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99FB993A1F0C775D00B415DA /* GroupSetsPopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupSetsPopoverController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				99376A2E1E99EC9600456DF7 /* AppDelegate.swift */,
 				99276D4E1F09ED83004AE5CE /* ChooseViewController.swift */,
 				99276D4F1F09ED83004AE5CE /* InputDetailsViewController.swift */,
+				99FB993A1F0C775D00B415DA /* GroupSetsPopoverController.swift */,
 				99376A321E99EC9600456DF7 /* Main.storyboard */,
 				99376A351E99EC9600456DF7 /* Assets.xcassets */,
 				99376A371E99EC9600456DF7 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99FB993B1F0C775D00B415DA /* GroupSetsPopoverController.swift in Sources */,
 				99276D511F09ED83004AE5CE /* InputDetailsViewController.swift in Sources */,
 				99376A2F1E99EC9600456DF7 /* AppDelegate.swift in Sources */,
 				99276D501F09ED83004AE5CE /* ChooseViewController.swift in Sources */,
