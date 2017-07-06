@@ -10,18 +10,20 @@ import UIKit
 
 class GroupSetsPopoverController: UIViewController, UIPopoverPresentationControllerDelegate {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
-        self.preferredContentSize = CGSize(width: 375, height: 162)
+        self.preferredContentSize = CGSize(width: 233, height: 162)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "infoButtonSegue" {
             let popoverViewController = segue.destination as! GroupSetsPopoverController
             
-            let pvc = popoverViewController.popoverPresentationController
-            pvc?.delegate = self
+            let popoverController = popoverViewController.popoverPresentationController
+            popoverController?.delegate = self
+            popoverController?.sourceView = sender as! UIView?
+            popoverController?.sourceRect = ((sender as AnyObject).bounds)!
             
             //popoverViewController.modalPresentationStyle = UIModalPresentationStyle.popover
             //popoverViewController.popoverPresentationController!.delegate = self

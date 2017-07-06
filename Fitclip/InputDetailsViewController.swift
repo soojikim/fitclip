@@ -12,6 +12,30 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet var ScrollView: UIScrollView!
     
+    // Initialize for view controller.
+    let circuitTitle = UILabel()
+    let titleTextField = UITextField()
+    let lineOne = UIView()
+    let caption = UILabel()
+    let placeholderColor = UIColor(red: 199/255, green: 199/255, blue: 205/255, alpha: 1)
+    let captionBox = UITextView()
+    let lineTwo = UIView()
+    let lineThree = UIView()
+    let numExTextField = UITextField()
+    let numExercises = UILabel()
+    let restBetExTextField = UITextField()
+    let restBetEx = UILabel()
+    let lineFour = UIView()
+    let numRoundsTextField = UITextField()
+    let numRounds = UILabel()
+    let restBetRdsTextField = UITextField()
+    let restBetRds = UILabel()
+    let lineFive = UIView()
+    let groupSetsSwitch = UISwitch()
+    let groupSets = UILabel()
+    let infoButton = UIButton(type: .infoLight)
+    let groupSetsExplain = UILabel()
+    
     
     @IBAction func userTappedBackground(sender: AnyObject) {
         view.endEditing(true)
@@ -24,27 +48,24 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         let fitclipColor = UIColor(red: 254/255, green: 196/255, blue: 24/255, alpha: 1)
         
         // Add title label.
-        let title = UILabel()
-        title.text = "Title"
-        title.textColor = UIColor.black
-        title.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(title)
+        circuitTitle.text = "Title"
+        circuitTitle.textColor = UIColor.black
+        circuitTitle.translatesAutoresizingMaskIntoConstraints = false
+        ScrollView.addSubview(circuitTitle)
         
-        title.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
-        title.topAnchor.constraint(equalTo: margins.topAnchor, constant: 0).isActive = true
+        circuitTitle.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
+        circuitTitle.topAnchor.constraint(equalTo: margins.topAnchor, constant: 0).isActive = true
         
         // Add text field for title.
-        let titleTextField = UITextField()
         titleTextField.placeholder = "Name your circuit..."
         titleTextField.translatesAutoresizingMaskIntoConstraints = false
         ScrollView.addSubview(titleTextField)
         
         titleTextField.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
         titleTextField.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 10).isActive = true
-        titleTextField.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 4).isActive = true
+        titleTextField.topAnchor.constraint(equalTo: circuitTitle.bottomAnchor, constant: 4).isActive = true
   
         // Add separation line #1.
-        let lineOne = UIView()
         lineOne.backgroundColor = UIColor.lightGray
         lineOne.translatesAutoresizingMaskIntoConstraints = false
         ScrollView.addSubview(lineOne)
@@ -55,7 +76,6 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         lineOne.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 10).isActive = true
         
         // Add caption label.
-        let caption = UILabel()
         caption.text = "Caption"
         caption.textColor = UIColor.black
         caption.translatesAutoresizingMaskIntoConstraints = false
@@ -65,9 +85,6 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         caption.topAnchor.constraint(equalTo: lineOne.bottomAnchor, constant: 10).isActive = true
         
         // Add text view box for caption.
-        let placeholderColor = UIColor(red: 199/255, green: 199/255, blue: 205/255, alpha: 1)
-        
-        let captionBox = UITextView()
         captionBox.delegate = self
         captionBox.text = "Describe your circuit..."
         captionBox.textColor = placeholderColor
@@ -81,7 +98,6 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         captionBox.heightAnchor.constraint(equalToConstant: 132).isActive = true
         
         // Add separation lines #2 & 3.
-        let lineTwo = UIView()
         lineTwo.backgroundColor = UIColor.lightGray
         lineTwo.translatesAutoresizingMaskIntoConstraints = false
         ScrollView.addSubview(lineTwo)
@@ -91,7 +107,6 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         lineTwo.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
         lineTwo.topAnchor.constraint(equalTo: captionBox.bottomAnchor, constant: 10).isActive = true
         
-        let lineThree = UIView()
         lineThree.backgroundColor = UIColor.lightGray
         lineThree.translatesAutoresizingMaskIntoConstraints = false
         ScrollView.addSubview(lineThree)
@@ -101,29 +116,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         lineThree.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
         lineThree.topAnchor.constraint(equalTo: lineTwo.bottomAnchor, constant: 2).isActive = true
         
-        // Add separation lines #4 & 5.
-        //let lineFour = UIView()
-        //lineFour.backgroundColor = UIColor.lightGray
-        //lineFour.translatesAutoresizingMaskIntoConstraints = false
-        //ScrollView.addSubview(lineFour)
-        
-        //lineFour.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        //lineFour.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
-        //lineFour.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
-        //lineFour.topAnchor.constraint(equalTo: lineThree.bottomAnchor, constant: 40).isActive = true
-        
-        //let lineFive = UIView()
-        //lineFive.backgroundColor = UIColor.lightGray
-        //lineFive.translatesAutoresizingMaskIntoConstraints = false
-        //ScrollView.addSubview(lineFive)
-        
-        //lineFive.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        //lineFive.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
-        //lineFive.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
-        //lineFive.topAnchor.constraint(equalTo: lineFour.bottomAnchor, constant: 2).isActive = true
-        
         // Add "Number of Exercises" text field.
-        let numExTextField = UITextField()
         numExTextField.placeholder = "0"
         numExTextField.keyboardType = UIKeyboardType.numberPad
         numExTextField.textAlignment = NSTextAlignment.right
@@ -135,7 +128,6 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         numExTextField.widthAnchor.constraint(equalToConstant: 50).isActive = true
         
         // Add "Number of Exercises" label.
-        let numExercises = UILabel()
         numExercises.text = "Number of Exercises"
         numExercises.textColor = UIColor.black
         numExercises.translatesAutoresizingMaskIntoConstraints = false
@@ -145,7 +137,6 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         numExercises.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
         
         // Add "Rest between Exercises" text field.
-        let restBetExTextField = UITextField()
         restBetExTextField.placeholder = "0"
         restBetExTextField.keyboardType = UIKeyboardType.numberPad
         restBetExTextField.textAlignment = NSTextAlignment.right
@@ -157,7 +148,6 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         restBetExTextField.widthAnchor.constraint(equalToConstant: 50).isActive = true
         
         // Add "Rest between Exercises" label.
-        let restBetEx = UILabel()
         restBetEx.text = "Rest between Exercises (Seconds)"
         restBetEx.textColor = UIColor.black
         restBetEx.translatesAutoresizingMaskIntoConstraints = false
@@ -166,31 +156,28 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         restBetEx.centerYAnchor.constraint(equalTo: restBetExTextField.centerYAnchor, constant: 0).isActive = true
         restBetEx.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
         
-        // Add separation line #6.
-        let lineSix = UIView()
-        lineSix.backgroundColor = UIColor.lightGray
-        lineSix.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(lineSix)
+        // Add separation line #4.
+        lineFour.backgroundColor = UIColor.lightGray
+        lineFour.translatesAutoresizingMaskIntoConstraints = false
+        ScrollView.addSubview(lineFour)
         
-        lineSix.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        lineSix.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
-        lineSix.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
-        lineSix.topAnchor.constraint(equalTo: restBetExTextField.bottomAnchor, constant: 10).isActive = true
+        lineFour.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        lineFour.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
+        lineFour.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
+        lineFour.topAnchor.constraint(equalTo: restBetExTextField.bottomAnchor, constant: 10).isActive = true
         
         // Add "Number of Rounds" text field.
-        let numRoundsTextField = UITextField()
         numRoundsTextField.placeholder = "0"
         numRoundsTextField.keyboardType = UIKeyboardType.numberPad
         numRoundsTextField.textAlignment = NSTextAlignment.right
         numRoundsTextField.translatesAutoresizingMaskIntoConstraints = false
         ScrollView.addSubview(numRoundsTextField)
         
-        numRoundsTextField.topAnchor.constraint(equalTo: lineSix.bottomAnchor, constant: 10).isActive = true
+        numRoundsTextField.topAnchor.constraint(equalTo: lineFour.bottomAnchor, constant: 10).isActive = true
         numRoundsTextField.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: -10).isActive = true
         numRoundsTextField.widthAnchor.constraint(equalToConstant: 50).isActive = true
         
         // Add "Number of Rounds" label.
-        let numRounds = UILabel()
         numRounds.text = "Number of Rounds"
         numRounds.textColor = UIColor.black
         numRounds.translatesAutoresizingMaskIntoConstraints = false
@@ -200,7 +187,6 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         numRounds.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
         
         // Add "Rest between Rounds" text field.
-        let restBetRdsTextField = UITextField()
         restBetRdsTextField.placeholder = "0"
         restBetRdsTextField.keyboardType = UIKeyboardType.numberPad
         restBetRdsTextField.textAlignment = NSTextAlignment.right
@@ -212,7 +198,6 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         restBetRdsTextField.widthAnchor.constraint(equalToConstant: 50).isActive = true
         
         // Add " Rest between Rounds' label.
-        let restBetRds = UILabel()
         restBetRds.text = "Rest between Rounds (Seconds)"
         restBetRds.textColor = UIColor.black
         restBetRds.translatesAutoresizingMaskIntoConstraints = false
@@ -221,29 +206,26 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         restBetRds.centerYAnchor.constraint(equalTo: restBetRdsTextField.centerYAnchor, constant: 0).isActive = true
         restBetRds.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
         
-        // Add separation line #7.
-        let lineSeven = UIView()
-        lineSeven.backgroundColor = UIColor.lightGray
-        lineSeven.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(lineSeven)
+        // Add separation line #5.
+        lineFive.backgroundColor = UIColor.lightGray
+        lineFive.translatesAutoresizingMaskIntoConstraints = false
+        ScrollView.addSubview(lineFive)
         
-        lineSeven.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        lineSeven.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
-        lineSeven.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
-        lineSeven.topAnchor.constraint(equalTo: restBetRdsTextField.bottomAnchor, constant: 10).isActive = true
+        lineFive.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        lineFive.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
+        lineFive.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
+        lineFive.topAnchor.constraint(equalTo: restBetRdsTextField.bottomAnchor, constant: 10).isActive = true
         
         // Add switch for "Group into Sets?"
-        let groupSetsSwitch = UISwitch()
         groupSetsSwitch.setOn(false, animated: true)
         groupSetsSwitch.onTintColor = fitclipColor
         groupSetsSwitch.translatesAutoresizingMaskIntoConstraints = false
         ScrollView.addSubview(groupSetsSwitch)
         
-        groupSetsSwitch.topAnchor.constraint(equalTo: lineSeven.bottomAnchor, constant: 10).isActive = true
+        groupSetsSwitch.topAnchor.constraint(equalTo: lineFive.bottomAnchor, constant: 10).isActive = true
         groupSetsSwitch.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: -10).isActive = true
         
         // Add "Group into Sets?" label.
-        let groupSets = UILabel()
         groupSets.text = "Group into Sets?"
         groupSets.textColor = UIColor.black
         groupSets.translatesAutoresizingMaskIntoConstraints = false
@@ -253,7 +235,6 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         groupSets.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
         
         // Add information button.
-        let infoButton = UIButton(type: .infoLight)
         infoButton.tintColor = fitclipColor
         infoButton.addTarget(self, action: #selector(infoButtonTapped), for: UIControlEvents.touchUpInside)
         infoButton.translatesAutoresizingMaskIntoConstraints = false
@@ -261,6 +242,24 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         
         infoButton.centerYAnchor.constraint(equalTo: groupSetsSwitch.centerYAnchor, constant: 0).isActive = true
         infoButton.leadingAnchor.constraint(equalTo: groupSets.trailingAnchor, constant: 10).isActive = true
+        
+        // Add group sets explanation label.
+        groupSetsExplain.text = "If you group your exercises into sets, you can repeat exercises in Set 1 before starting exercises in Set 2. If you don't group your exercises into sets, you'll do all the exercises once before repeating them again."
+        groupSetsExplain.textColor = UIColor.black
+        groupSetsExplain.numberOfLines = 6
+        groupSetsExplain.adjustsFontSizeToFitWidth = true
+        groupSetsExplain.minimumScaleFactor = 0.2
+        groupSetsExplain.allowsDefaultTighteningForTruncation = true
+        groupSetsExplain.translatesAutoresizingMaskIntoConstraints = false
+        groupSetsExplain.isHidden = true
+        groupSetsExplain.layer.borderWidth = 1.0
+        groupSetsExplain.layer.cornerRadius = 8
+        groupSetsExplain.layer.borderColor = UIColor.lightGray.cgColor
+        ScrollView.addSubview(groupSetsExplain)
+        
+        groupSetsExplain.topAnchor.constraint(equalTo: infoButton.bottomAnchor, constant: 5).isActive = true
+        groupSetsExplain.centerXAnchor.constraint(equalTo: infoButton.centerXAnchor, constant: 0).isActive = true
+        groupSetsExplain.widthAnchor.constraint(equalToConstant: 200).isActive = true
         
         
         // At start: right bar button should be next
@@ -305,9 +304,14 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         self.navigationController?.pushViewController(chooseViewControllerObj!, animated: true)
     }
     
-    // Action when information button for "Group into Sets?" tapped
     func infoButtonTapped (sender: UIButton) {
-        self.performSegue(withIdentifier: "infoButtonSegue", sender: self)
-        
+        if groupSetsExplain.isHidden == true {
+            groupSetsExplain.isHidden = false
+        }
+        else {
+            groupSetsExplain.isHidden = true
+        }
     }
+    
+    
 }
