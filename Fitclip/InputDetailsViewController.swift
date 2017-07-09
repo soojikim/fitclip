@@ -35,7 +35,11 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
     let groupSets = UILabel()
     let infoButton = UIButton(type: .infoLight)
     let groupSetsExplain = UILabel()
-    
+    let numSetsTextField = UITextField()
+    let numSets = UILabel()
+    let restBetSetsTextField = UITextField()
+    let restBetSets = UILabel()
+    let groupSetsView = UIView(frame: CGRect(x: 10, y: 440, width: 395, height: 100))
     
     @IBAction func userTappedBackground(sender: AnyObject) {
         view.endEditing(true)
@@ -220,6 +224,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         groupSetsSwitch.setOn(false, animated: true)
         groupSetsSwitch.onTintColor = fitclipColor
         groupSetsSwitch.translatesAutoresizingMaskIntoConstraints = false
+        groupSetsSwitch.addTarget(self, action: #selector(groupSetsSwitchOn), for: UIControlEvents.valueChanged)
         ScrollView.addSubview(groupSetsSwitch)
         
         groupSetsSwitch.topAnchor.constraint(equalTo: lineFive.bottomAnchor, constant: 10).isActive = true
@@ -261,6 +266,51 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         groupSetsExplain.centerXAnchor.constraint(equalTo: infoButton.centerXAnchor, constant: 0).isActive = true
         groupSetsExplain.widthAnchor.constraint(equalToConstant: 200).isActive = true
         
+        // Add view for group sets.
+        groupSetsView.backgroundColor = UIColor.white
+        ScrollView.addSubview(groupSetsView)
+        
+        // Add text field for "Number of Sets"
+        numSetsTextField.placeholder = "0"
+        numSetsTextField.keyboardType = UIKeyboardType.numberPad
+        numSetsTextField.textAlignment = NSTextAlignment.right
+        numSetsTextField.translatesAutoresizingMaskIntoConstraints = false
+        groupSetsView.addSubview(numSetsTextField)
+        
+        numSetsTextField.topAnchor.constraint(equalTo: groupSetsView.topAnchor, constant: 0).isActive = true
+        numSetsTextField.trailingAnchor.constraint(equalTo: groupSetsView.trailingAnchor, constant: -10).isActive = true
+        numSetsTextField.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        // Add label for "Number of Sets"
+        numSets.text = "Number of Sets"
+        numSets.textColor = UIColor.black
+        numSets.translatesAutoresizingMaskIntoConstraints = false
+        groupSetsView.addSubview(numSets)
+        
+        numSets.centerYAnchor.constraint(equalTo: numSetsTextField.centerYAnchor, constant: 0).isActive = true
+        numSets.leadingAnchor.constraint(equalTo: groupSetsView.leadingAnchor, constant: 10).isActive = true
+        
+        // Add text field for "Rest between Sets"
+        restBetSetsTextField.placeholder = "0"
+        restBetSetsTextField.keyboardType = UIKeyboardType.numberPad
+        restBetSetsTextField.textAlignment = NSTextAlignment.right
+        restBetSetsTextField.translatesAutoresizingMaskIntoConstraints = false
+        groupSetsView.addSubview(restBetSetsTextField)
+        
+        restBetSetsTextField.topAnchor.constraint(equalTo: numSetsTextField.bottomAnchor, constant: 10).isActive = true
+        restBetSetsTextField.trailingAnchor.constraint(equalTo: groupSetsView.trailingAnchor, constant: -10).isActive = true
+        
+        // Add label for "Rest between Sets"
+        restBetSets.text = "Rest between Sets (Seconds)"
+        restBetSets.textColor = UIColor.black
+        restBetSets.translatesAutoresizingMaskIntoConstraints = false
+        groupSetsView.addSubview(restBetSets)
+        
+        restBetSets.centerYAnchor.constraint(equalTo: restBetSetsTextField.centerYAnchor, constant: 0).isActive = true
+        restBetSets.leadingAnchor.constraint(equalTo: groupSetsView.leadingAnchor, constant: 10).isActive = true
+        
+        // At start, groupSetsView should be hidden.
+        groupSetsView.alpha = 0.0
         
         // At start: right bar button should be next
         let nextButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
@@ -310,6 +360,15 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         }
         else {
             groupSetsExplain.isHidden = true
+        }
+    }
+    
+    func groupSetsSwitchOn (sender: UISwitch) {
+        if groupSetsSwitch.isOn {
+            UIView.animate(withDuration: 0.2, delay: 0.0, animations: {self.groupSetsView.alpha = 1}, completion: nil)
+        }
+        else {
+            UIView.animate(withDuration: 0.2, delay: 0.0, animations: {self.groupSetsView.alpha = 0}, completion: nil)
         }
     }
     
