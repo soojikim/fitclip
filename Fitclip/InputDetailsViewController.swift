@@ -10,7 +10,8 @@ import UIKit
 
 class InputDetailsViewController: UIViewController, UITextViewDelegate {
     
-    @IBOutlet var ScrollView: UIScrollView!
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var contentView: UIView!
     
     // Initialize for view controller.
     let circuitTitle = UILabel()
@@ -40,6 +41,9 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
     let restBetSetsTextField = UITextField()
     let restBetSets = UILabel()
     let groupSetsView = UIView(frame: CGRect(x: 10, y: 440, width: 395, height: 100))
+    var infoAlertController: UIAlertController = UIAlertController()
+    
+    
     
     @IBAction func userTappedBackground(sender: AnyObject) {
         view.endEditing(true)
@@ -48,14 +52,16 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let margins = ScrollView.layoutMarginsGuide
+        let margins = contentView.layoutMarginsGuide
         let fitclipColor = UIColor(red: 254/255, green: 196/255, blue: 24/255, alpha: 1)
+        
+        contentView.backgroundColor = fitclipColor
         
         // Add title label.
         circuitTitle.text = "Title"
         circuitTitle.textColor = UIColor.black
         circuitTitle.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(circuitTitle)
+        contentView.addSubview(circuitTitle)
         
         circuitTitle.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
         circuitTitle.topAnchor.constraint(equalTo: margins.topAnchor, constant: 0).isActive = true
@@ -63,7 +69,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         // Add text field for title.
         titleTextField.placeholder = "Name your circuit..."
         titleTextField.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(titleTextField)
+        contentView.addSubview(titleTextField)
         
         titleTextField.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
         titleTextField.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 10).isActive = true
@@ -72,7 +78,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         // Add separation line #1.
         lineOne.backgroundColor = UIColor.lightGray
         lineOne.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(lineOne)
+        contentView.addSubview(lineOne)
         
         lineOne.heightAnchor.constraint(equalToConstant: 1).isActive = true
         lineOne.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
@@ -83,7 +89,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         caption.text = "Caption"
         caption.textColor = UIColor.black
         caption.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(caption)
+        contentView.addSubview(caption)
         
         caption.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
         caption.topAnchor.constraint(equalTo: lineOne.bottomAnchor, constant: 10).isActive = true
@@ -94,7 +100,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         captionBox.textColor = placeholderColor
         captionBox.layer.borderColor = UIColor.black.cgColor
         captionBox.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(captionBox)
+        contentView.addSubview(captionBox)
         
         captionBox.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
         captionBox.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 10).isActive = true
@@ -104,7 +110,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         // Add separation lines #2 & 3.
         lineTwo.backgroundColor = UIColor.lightGray
         lineTwo.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(lineTwo)
+        contentView.addSubview(lineTwo)
         
         lineTwo.heightAnchor.constraint(equalToConstant: 1).isActive = true
         lineTwo.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
@@ -113,7 +119,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         
         lineThree.backgroundColor = UIColor.lightGray
         lineThree.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(lineThree)
+        contentView.addSubview(lineThree)
         
         lineThree.heightAnchor.constraint(equalToConstant: 1).isActive = true
         lineThree.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
@@ -125,7 +131,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         numExTextField.keyboardType = UIKeyboardType.numberPad
         numExTextField.textAlignment = NSTextAlignment.right
         numExTextField.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(numExTextField)
+        contentView.addSubview(numExTextField)
         
         numExTextField.topAnchor.constraint(equalTo: lineThree.bottomAnchor, constant: 10).isActive = true
         numExTextField.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: -10).isActive = true
@@ -135,7 +141,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         numExercises.text = "Number of Exercises"
         numExercises.textColor = UIColor.black
         numExercises.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(numExercises)
+        contentView.addSubview(numExercises)
         
         numExercises.centerYAnchor.constraint(equalTo: numExTextField.centerYAnchor, constant: 0).isActive = true
         numExercises.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
@@ -145,7 +151,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         restBetExTextField.keyboardType = UIKeyboardType.numberPad
         restBetExTextField.textAlignment = NSTextAlignment.right
         restBetExTextField.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(restBetExTextField)
+        contentView.addSubview(restBetExTextField)
         
         restBetExTextField.topAnchor.constraint(equalTo: numExTextField.bottomAnchor, constant: 10).isActive = true
         restBetExTextField.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: -10).isActive = true
@@ -155,7 +161,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         restBetEx.text = "Rest between Exercises (Seconds)"
         restBetEx.textColor = UIColor.black
         restBetEx.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(restBetEx)
+        contentView.addSubview(restBetEx)
         
         restBetEx.centerYAnchor.constraint(equalTo: restBetExTextField.centerYAnchor, constant: 0).isActive = true
         restBetEx.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
@@ -163,7 +169,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         // Add separation line #4.
         lineFour.backgroundColor = UIColor.lightGray
         lineFour.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(lineFour)
+        contentView.addSubview(lineFour)
         
         lineFour.heightAnchor.constraint(equalToConstant: 1).isActive = true
         lineFour.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
@@ -175,7 +181,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         numRoundsTextField.keyboardType = UIKeyboardType.numberPad
         numRoundsTextField.textAlignment = NSTextAlignment.right
         numRoundsTextField.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(numRoundsTextField)
+        contentView.addSubview(numRoundsTextField)
         
         numRoundsTextField.topAnchor.constraint(equalTo: lineFour.bottomAnchor, constant: 10).isActive = true
         numRoundsTextField.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: -10).isActive = true
@@ -185,7 +191,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         numRounds.text = "Number of Rounds"
         numRounds.textColor = UIColor.black
         numRounds.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(numRounds)
+        contentView.addSubview(numRounds)
         
         numRounds.centerYAnchor.constraint(equalTo: numRoundsTextField.centerYAnchor, constant: 0).isActive = true
         numRounds.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
@@ -195,7 +201,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         restBetRdsTextField.keyboardType = UIKeyboardType.numberPad
         restBetRdsTextField.textAlignment = NSTextAlignment.right
         restBetRdsTextField.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(restBetRdsTextField)
+        contentView.addSubview(restBetRdsTextField)
         
         restBetRdsTextField.topAnchor.constraint(equalTo: numRoundsTextField.bottomAnchor, constant: 10).isActive = true
         restBetRdsTextField.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: -10).isActive = true
@@ -205,7 +211,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         restBetRds.text = "Rest between Rounds (Seconds)"
         restBetRds.textColor = UIColor.black
         restBetRds.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(restBetRds)
+        contentView.addSubview(restBetRds)
         
         restBetRds.centerYAnchor.constraint(equalTo: restBetRdsTextField.centerYAnchor, constant: 0).isActive = true
         restBetRds.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
@@ -213,7 +219,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         // Add separation line #5.
         lineFive.backgroundColor = UIColor.lightGray
         lineFive.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(lineFive)
+        contentView.addSubview(lineFive)
         
         lineFive.heightAnchor.constraint(equalToConstant: 1).isActive = true
         lineFive.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
@@ -225,7 +231,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         groupSetsSwitch.onTintColor = fitclipColor
         groupSetsSwitch.translatesAutoresizingMaskIntoConstraints = false
         groupSetsSwitch.addTarget(self, action: #selector(groupSetsSwitchOn), for: UIControlEvents.valueChanged)
-        ScrollView.addSubview(groupSetsSwitch)
+        contentView.addSubview(groupSetsSwitch)
         
         groupSetsSwitch.topAnchor.constraint(equalTo: lineFive.bottomAnchor, constant: 10).isActive = true
         groupSetsSwitch.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: -10).isActive = true
@@ -234,7 +240,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         groupSets.text = "Group into Sets?"
         groupSets.textColor = UIColor.black
         groupSets.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(groupSets)
+        contentView.addSubview(groupSets)
         
         groupSets.centerYAnchor.constraint(equalTo: groupSetsSwitch.centerYAnchor, constant: 0).isActive = true
         groupSets.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
@@ -243,7 +249,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         infoButton.tintColor = fitclipColor
         infoButton.addTarget(self, action: #selector(infoButtonTapped), for: UIControlEvents.touchUpInside)
         infoButton.translatesAutoresizingMaskIntoConstraints = false
-        ScrollView.addSubview(infoButton)
+        contentView.addSubview(infoButton)
         
         infoButton.centerYAnchor.constraint(equalTo: groupSetsSwitch.centerYAnchor, constant: 0).isActive = true
         infoButton.leadingAnchor.constraint(equalTo: groupSets.trailingAnchor, constant: 10).isActive = true
@@ -260,7 +266,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         groupSetsExplain.layer.borderWidth = 1.0
         groupSetsExplain.layer.cornerRadius = 8
         groupSetsExplain.layer.borderColor = UIColor.lightGray.cgColor
-        ScrollView.addSubview(groupSetsExplain)
+        contentView.addSubview(groupSetsExplain)
         
         groupSetsExplain.topAnchor.constraint(equalTo: infoButton.bottomAnchor, constant: 5).isActive = true
         groupSetsExplain.centerXAnchor.constraint(equalTo: infoButton.centerXAnchor, constant: 0).isActive = true
@@ -268,7 +274,7 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         
         // Add view for group sets.
         groupSetsView.backgroundColor = UIColor.white
-        ScrollView.addSubview(groupSetsView)
+        contentView.addSubview(groupSetsView)
         
         // Add text field for "Number of Sets"
         numSetsTextField.placeholder = "0"
@@ -320,6 +326,13 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         // At start: title in navigation bar should be "Circuit Details"
         self.navigationItem.title = "Circuit Details"
         
+        // Notifications for keyboard.
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        // Dismiss keyboard by tapping elsewhere.
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: Selector("endEditing:")))
+        
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -349,20 +362,21 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    // Function: Tap "Next" button.
     func nextTapped (sender: UIBarButtonItem) {
         let chooseViewControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "ChooseViewController") as? ChooseViewController
         self.navigationController?.pushViewController(chooseViewControllerObj!, animated: true)
     }
     
+    // Function: Tap info button.
     func infoButtonTapped (sender: UIButton) {
-        if groupSetsExplain.isHidden == true {
-            groupSetsExplain.isHidden = false
-        }
-        else {
-            groupSetsExplain.isHidden = true
-        }
+        let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
+        infoAlertController = UIAlertController(title: "Group into sets?", message: "If you group your exercises into sets, you'll repeat exercises in Set 1 before starting exercises in Set 2. \n \n If you don't group your exercises into sets, you'll do all the exercises once before repeating them again.", preferredStyle: .alert)
+            infoAlertController.addAction(dismissAction)
+        self.present(infoAlertController, animated: true, completion: nil)
     }
     
+    // Function: Switch on & off the group sets switch button.
     func groupSetsSwitchOn (sender: UISwitch) {
         if groupSetsSwitch.isOn {
             UIView.animate(withDuration: 0.2, delay: 0.0, animations: {self.groupSetsView.alpha = 1}, completion: nil)
@@ -372,5 +386,24 @@ class InputDetailsViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    // Function: Show keyboard.
+    func keyboardWillShow(notification: NSNotification) {
+        
+        var userInfo = notification.userInfo
+        var keyboardFrame: CGRect = (userInfo![UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, to: nil)
+        
+        
+        
+        var contentInset: UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 20
+        self.scrollView.contentInset = contentInset
+    }
+    
+    func keyboardWillHide(notification: NSNotification){
+        
+        let contentInset: UIEdgeInsets = UIEdgeInsets.zero
+        self.scrollView.contentInset = contentInset
+    }
     
 }
